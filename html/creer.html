@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Créer un nouveau compte</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button, a.button-link {
+      display: inline-block;
+      padding: 10px 15px;
+      margin-top: 10px;
+      text-decoration: none;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+    a.button-link {
+      background-color: #6c757d;
+      margin-left: 10px;
+    }
+    button:hover, a.button-link:hover {
+      opacity: 0.9;
+    }
+    .button-group {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Créer un nouveau compte</h2>
+    <form id="formCreerCompte">
+      <label for="nouvelUtilisateur">Nom d'utilisateur</label>
+      <input type="text" id="nouvelUtilisateur">
+
+      <label for="nouveauMotDePasse">Mot de passe</label>
+      <input type="password" id="nouveauMotDePasse">
+
+      <label for="confirmerMotDePasse">Confirmer le mot de passe</label>
+      <input type="password" id="confirmerMotDePasse">
+
+      <div class="button-group">
+        <button type="submit">Créer le compte</button>
+        <a href="../index.html" class="button-link">Retour à l'accueil</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("formCreerCompte").addEventListener("submit", function(e) {
+      //  Empêcher l'envoi du formulaire par défaut.
+    e.preventDefault()
+      // Récupérer les valeurs saisies pour le nom d'utilisateur et le mot de passe.
+      // Charger les comptes existants depuis le localStorage.
+      // Ajouter le nouveau compte dans les comptes existants.
+      // Enregistrer les comptes mis à jour dans le localStorage.
+      // Afficher un message de succès et rediriger vers la page d'accueil.
+    });
+  </script>
+</body>
+</html>

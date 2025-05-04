@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/jeu.js" defer></script>
+</head>
+<body>
+    <h1>Jeu de tir</h1>
+
+    <!-- Zone de jeu avec rampe de lancement et ligne de tir -->
+    <div id="zoneDeJeu" style="position:relative; width:600px; height:400px; margin:auto; background-color:lightblue;">
+        <div class="rampe" id="rampe" style="position:absolute; bottom:0; left:50%; width:50px; height:20px; background:black; transform:translateX(-50%);">
+        </div>
+        <div class="ligne" id="ligneTir"></div>
+        <!-- TODO 1: Ajouter le déplacement de la rampe avec les flèches gauche/droite -->
+        <!-- TODO 2: Ajouter l'orientation de la ligne de tir avec les touches K et L -->
+    </div>
+
+    <!-- Bouton de tir temporaire -->
+    <button id="tirer">Tirer</button>
+
+<!-- Zone pour afficher la touche appuyée -->
+<div id="zoneTouche" style="margin-top:20px; text-align:center; font-weight:bold; color:blue;"></div>
+    <!-- TODO 3: Remplacer ce bouton par la gestion du tir avec la flèche haut du clavier -->
+
+    <!-- Instructions du jeu -->
+    <div style="max-width:600px; margin:40px auto; padding:20px; border:1px solid #ccc; border-radius:8px; background-color:#f0f0f0;">
+        <h2>Instructions du jeu</h2>
+        <p>🎯 <strong>Orientation du tir</strong> : touche <kbd>K</kbd> (↺) pour tourner à gauche, <kbd>L</kbd> (↻) pour tourner à droite.</p>
+        <p>🚶‍♂️ <strong>Déplacement</strong> : touches fléchées gauche ⬅️ et droite ➡️ pour déplacer la rampe.</p>
+        <p>🐦 <strong>Tir</strong> : appuyer sur la flèche haut ⬆️ pour tirer.</p>
+        <!-- TODO 4: Ajouter l'apparition et le déplacement des oiseaux dans la zone de jeu -->
+        <!-- TODO 5: Ajouter la détection de collision entre tir et cible -->
+    </div>
+
+
+<script src="../js/clavier.js" defer></script>
+
+<script>
+// TODO : Plus tard, déplacer l'initialisation du clavier dans un fichier JS externe.
+// Attention : ce script est temporaire et ne contient qu'une partie du code complet.
+// Son but est uniquement de permettre à la page de fonctionner sans générer d'erreur JavaScript pour l'instant.
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (typeof plan !== "undefined") { 
+    const gestionnaireClavier = new GestionnaireClavier(plan);
+    gestionnaireClavier.activer();
+  } else {
+  // TEMPORAIRE pour afficher la touche pressée sans dépendre de plan
+	document.addEventListener('keydown', function(e) {
+	const zone = document.getElementById("zoneTouche");
+	if (zone) {
+		zone.textContent = "La touche appuyée est : " + e.key;
+	}
+	});
+    console.warn("Plan n'est pas encore défini. L'étudiant devra corriger jeu.js.");
+  }
+});
+</script>
+
+</body>
+</html>

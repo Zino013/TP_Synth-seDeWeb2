@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu principal - Version Étudiant</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- TODO: Utiliser la classe Bootstrap navbar, navbar-expand-lg, navbar-dark, bg-primary -->
+<nav class="barre-navigation">
+  <!-- TODO: Utiliser container-fluid Bootstrap pour aligner correctement les éléments -->
+  <div class="conteneur">
+    <h1 class="titre-jeu">Mon Jeu</h1>
+    <!-- TODO: Utiliser navbar-nav, nav-item, nav-link Bootstrap pour styliser les liens -->
+    <ul class="navigation">
+      <!-- TODO: Utiliser nav-link active et aria-current="page" pour indiquer la page active -->
+      <li><a href="jeu.html">Jouer</a></li>
+      <li><a href="parametres.html">Paramètres</a></li>
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="#" onclick="afficherModal()">Top 5 des scores</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TODO: Utiliser container, text-center, mt-5 Bootstrap pour styliser cette zone d'accueil -->
+<div class="conteneur-accueil">
+  <h2>Bienvenue <span id="nomJoueur">Testeur123</span></h2>
+</div>
+
+<!-- TODO: Utiliser modal Bootstrap (modal fade, modal-dialog, modal-content, modal-header, etc.) -->
+<div id="topScoresModal" class="modal-cachee">
+  <div class="modal-contenu">
+    <h3>Top 5 des meilleurs scores</h3>
+    <ol id="listeTop5"></ol>
+    <!-- TODO: Utiliser btn btn-secondary Bootstrap pour styliser ce bouton -->
+    <button onclick="fermerModal()">Fermer</button>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="../js/utilitaires.js"></script>
+<script>
+// TODO: Remplacer cet usager fixe par une lecture dynamique du localStorage
+const usagerFictif = "Testeur123";
+document.getElementById("nomJoueur").textContent = usagerFictif;
+
+// TODO: Remplacer ce tableau fixe par une récupération dynamique des scores depuis le localStorage
+const scoresFixes = [92.5, 87.2, 80.0, 75.4, 70.0];
+
+function afficherTopScores() {
+  const liste = document.getElementById("listeTop5");
+  liste.innerHTML = "";
+
+  // TODO: Trier dynamiquement les scores plus tard si nécessaire
+  scoresFixes.forEach(score => {
+    const li = document.createElement("li");
+    li.textContent = score.toFixed(2);
+    liste.appendChild(li);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", afficherTopScores);
+
+function afficherModal() {
+  document.getElementById("topScoresModal").style.display = "flex";
+}
+
+function fermerModal() {
+  document.getElementById("topScoresModal").style.display = "none";
+}
+</script>
+
+<style>
+/* Styles simples pour guider les étudiants */
+/* TODO: Remplacer par des classes Bootstrap appropriées */
+
+.barre-navigation {
+  background-color: #007bff;
+  padding: 10px;
+  color: white;
+}
+
+.conteneur {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigation {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.navigation li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.conteneur-accueil {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.modal-cachee {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: white;
+  border: 2px solid #007bff;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-contenu {
+  text-align: center;
+}
+</style>
+
+</body>
+</html>
