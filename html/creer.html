@@ -82,8 +82,10 @@
   <script>
     document.getElementById("formCreerCompte").addEventListener("submit", function(e) {
       //  Empêcher l'envoi du formulaire par défaut.
-    e.preventDefault()
+      e.preventDefault();
       // Récupérer les valeurs saisies pour le nom d'utilisateur et le mot de passe.
+      let utilisateur = document.getElementById("nouvelUtilisateur");
+      let motDePasse = document.getElementById("nouveauMotDePasse");
       // Charger les comptes existants depuis le localStorage.
       // Ajouter le nouveau compte dans les comptes existants.
       // Enregistrer les comptes mis à jour dans le localStorage.
