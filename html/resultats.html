@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Résultats du jeu</title>
+  <link rel="stylesheet" href="../bootstrap/bootstrap.css">
+  <script src="../bootstrap/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="container mt-5 text-center">
+    <h2>Résultats de la partie</h2>
+    <p>Nom du joueur : <span id="nomJoueur">-</span></p>
+    <p>Score obtenu : <span id="scoreObtenu">-</span></p>
+    <p>Précision : <span id="precision">-</span></p>
+    <p>Temps écoulé : <span id="temps">-</span></p>
+    <a href="menu.html" class="btn btn-primary mt-4">Retour au menu</a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("nomJoueur").textContent = localStorage.getItem("usager") || "-";
+      document.getElementById("scoreObtenu").textContent = localStorage.getItem("dernierScore") || "-";
+      document.getElementById("precision").textContent = localStorage.getItem("precisionDernierePartie") || "-";
+      document.getElementById("temps").textContent = localStorage.getItem("dureeDernierePartie") || "-";
+    });
+  </script>
+</body>
+</html>
