@@ -1,0 +1,85 @@
+body {
+  background-color: #e0f7fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#menuPrincipal {
+  flex-shrink: 0;
+}
+
+#zoneJeu {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  background-color: #f0f0f8;
+  border: 2px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Apparence de véhicule pour la rampe */
+/* TODO : Améliorer l'apparence du véhicule (proportions, couleur) */
+.rampe {
+  position: absolute;
+  width: 80px; /* Trop large volontairement */
+  height: 15px; /* Trop plat volontairement */
+  background-color: darkred; /* Couleur peu esthétique */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px 2px 0 0;
+  box-shadow: none; /* Pas d'ombre */
+}
+
+/* Roues du véhicule */
+/* TODO : Ajuster taille, couleur et ajouter une bordure contrastante */
+.rampe::before, .rampe::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  width: 8px;
+  height: 8px;
+  background-color: darkred; /* Même couleur que la rampe */
+  border-radius: 30%;
+}
+
+.rampe::before {
+  left: 10px;
+}
+
+.rampe::after {
+  right: 10px;
+}
+
+/* Ligne bleue (canon) déformée */
+/* TODO : Corriger la taille, la couleur et le style de la ligne de tir */
+.ligne {
+ position: absolute;
+  width: 20px; /* Trop large */
+  height: 30px; /* Trop courte */
+  background-color: orange;
+  bottom: 10px;
+  left: 48%;
+  transform-origin: bottom center;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+/* Instructions du jeu */
+.instructions {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto;
+  background-color: #eeeeee;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* TODO : Compléter les styles pour les tirs, cibles, barres de score, etc. */
